@@ -7,6 +7,7 @@ public class Group : MonoBehaviour {
     public bool hitFloor=false;
     public bool block1, block2;
     public bool isPreviewBlock1, isPreviewBlock2;
+    [SerializeField]
     public bool block1Floor, block2Floor;
 
     public float handLeftX, handRightX, initHandLeftX, initHandRightX;
@@ -24,12 +25,12 @@ public class Group : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
+        /*
         initHandLeftX = (FindObjectOfType<KinectManager>().leftHandPosX * 10) - 3;
         initHandRightX = (FindObjectOfType<KinectManager>().rightHandPosX * 10) + 3;
         initHandLeftY = (FindObjectOfType<KinectManager>().leftHandPosY * 10) + 3;
         initHandRightY = (FindObjectOfType<KinectManager>().rightHandPosY * 10) + 3;
-        /*
+        
         initHandLeftX = (FindObjectOfType<KinectManager>().leftHandInitialPosX * 10) - 3;
         initHandRightX = (FindObjectOfType<KinectManager>().rightHandInitialPosX * 10) + 3;
         initHandLeftY = (FindObjectOfType<KinectManager>().leftHandInitialPosY * 10) + 2;
@@ -55,15 +56,16 @@ public class Group : MonoBehaviour {
 
             // Change the next update (current second+1)
             nextUpdate = Time.time + .3f;
-
+            /*
             handLeftX = (FindObjectOfType<KinectManager>().leftHandPosX * 10);
             handRightX = (FindObjectOfType<KinectManager>().rightHandPosX * 10);
 
             handLeftY = (FindObjectOfType<KinectManager>().leftHandPosY * 10);
             handRightY = (FindObjectOfType<KinectManager>().rightHandPosY * 10);
-
+*/
             block1Floor = FindObjectOfType<Spawner>().block1HitFloor;
             block2Floor = FindObjectOfType<Spawner>().block2HitFloor;
+            
 
             if (block1 == true)
             {

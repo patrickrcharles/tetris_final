@@ -67,7 +67,7 @@ public class Grid : MonoBehaviour {
 
     public static void decreaseRow(int y)
     {
-        Debug.Log("public static void decreaseRow(int y)\n");
+        //Debug.Log("public static void decreaseRow(int y)\n");
         if (removeLinesGrid1 == true)
         {
             for (int x = 0; x <10; ++x)
@@ -88,7 +88,7 @@ public class Grid : MonoBehaviour {
 
         if (removeLinesGrid2 == true)
         {
-            Debug.Log("public static void decreaseRow(int y)\n");
+            //Debug.Log("public static void decreaseRow(int y)\n");
             for (int x = 10; x < 20; ++x)
             {
                 //Debug.Log(" for (int x =10; x < 20; ++x)\n");
@@ -136,9 +136,9 @@ public class Grid : MonoBehaviour {
     {
         removeLinesGrid1 = false;
         //Debug.Log("public static bool isRowFullGrid1(int y)\n");
-        for (int x = 0; x < 10; ++x)
+        for (int x = 0; x < 10; x++)
         {
-            //Debug.Log("grid1 : " + x + " , " + y + "\n");
+            Debug.Log("grid1  :: grid1[" + x + ", " + y + "]");
             if (grid1[x, y] == null)
             {
                 //removeLinesGrid1 = true;
@@ -156,10 +156,9 @@ public class Grid : MonoBehaviour {
     public static bool isRowFullGrid2(int y)
     {
         removeLinesGrid2 = false;
-        //Debug.Log("public static bool isRowFullGrid2(int y)\n");
-        for (int x = 10; x < 20; ++x)
+        for (int x = 10; x < 20; x++)
         {
-            //Debug.Log("grid1 : " + x + " , " + y + "\n");
+            Debug.Log("grid2 :: grid2["+ x+", "+ y+"]");
             if (grid1[x, y] == null)
             {
                 return false;
@@ -177,12 +176,11 @@ public class Grid : MonoBehaviour {
     {
         removeLinesGrid3 = false;
         //Debug.Log("public static bool isRowFullGrid3(int y)\n");
-        for (int x = 20; x < 30; ++x)
+        for (int x = 20; x < 30; x++)
         {
-            //Debug.Log("public static bool isRowFullGrid2(int y)\n");
+            Debug.Log("grid3 :: grid1["+ x+", "+ y+"]");
             if (grid1[x, y] == null)
             {
-
                 return false;
             }
         }
@@ -195,29 +193,29 @@ public class Grid : MonoBehaviour {
 
     public static void deleteFullRows()
     {
-        //Debug.Log("*****public static void deleteFullRows()\n");
-        for (int y = 0; y < g1h; ++y)
+        Debug.Log("*****public static void deleteFullRows()\n");
+        for (int y = 0; y < g1h; y++)
         {
             if (isRowFullGrid1(y))
             {
-                //Debug.Log("     if (isRowFullGrid1(y))\n");
+                Debug.Log("     if (isRowFullGrid1("+y+"))\n");
                 deleteRow(y);
                 decreaseRowsAbove(y + 1);
-                --y;
+                y--;
             }
             if (isRowFullGrid2(y))
             {
-                //Debug.Log("     if (isRowFullGrid2(y))\n");
+                Debug.Log("     if (isRowFullGrid2(" + y + "))\n");
                 deleteRow(y);
                 decreaseRowsAbove(y + 1);
-                --y;
+                y--;
             }
             if (isRowFullGrid3(y))
             {
-                //Debug.Log("     if (isRowFullGrid3(y))\n");
+                Debug.Log("     if (isRowFullGrid3(" + y + "))\n");
                 deleteRow(y);
                 decreaseRowsAbove(y + 1);
-                --y;
+                y--;
             }
 
         }
